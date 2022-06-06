@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head></head>
+    <body>
+        <h3>The following courses are offered to EEC students by CopperCloud:</h3>
+
+        <!-- Embed code into the template -->
+
+        <table border=1>
+            <tr>
+                <td><b>Batch</b></td><td><b>Course</b></td><td><b>Instructor</b></td>
+            </tr>
+            <!-- for loop -->
+            {% for item in context %}
+            <tr>
+                <td>{{item.batch}}</td><td>{{item.course}}</td><td>CopperCloud</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </body>
+</html>

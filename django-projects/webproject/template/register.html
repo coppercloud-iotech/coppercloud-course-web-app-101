@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <script>
+        function changeACtion() {
+            document.getElementById('form1').action = '/home/support'
+        }
+    </script>
+    <body>
+        <h3>Please register user:</h3>
+
+        <form action="/home/submit" method="post">
+            {% csrf_token %} <!-- Security token -->
+            <label>ID: </label><input type="text" name ='courseid'/>
+            <label>Batch: </label><input type="text" name ='batch' maxlength=10/>
+            <label>Course: </label><input type="text" name ='coursename'/>
+            <input type="submit" value="Send Data"  class="w3-button w3-green"/>
+        </form>
+
+        <br/>
+        <br/>
+
+
+        <h3>The following courses are offered to EEC students by CopperCloud:</h3>
+
+        <!-- Embed code into the template -->
+
+        <table border=1>
+            <tr>
+                <td><b>ID</b></td><td><b>BATCH</b></td><td><b>COURSE</b></td>
+            </tr>
+            <!-- for loop -->
+            {% for item in context %}
+            <tr>
+                <td>{{item.0}}</td><td>{{item.1}}</td><td>{{item.2}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </body>
+</html>
